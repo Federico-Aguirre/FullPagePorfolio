@@ -1,0 +1,223 @@
+.contacto {
+  display: grid;
+  place-content: center;
+  font-size: $normal-font;
+  height: 650px;
+  width: 100%;
+  grid-template-rows: 1fr 20px;
+
+  &__formContenedorParaEfectos {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+
+  &__formContenedor {
+    width: 350px;
+    height: 75%;
+    background-color: $lightViolet;
+    border-radius: 10px;
+    border: 5px solid $darkViolet;
+    box-shadow: $shadow;
+    margin: 0 auto;
+    place-self: auto;
+
+    &__form {
+      display: grid;
+      margin: 2em 2em 0 2em;
+      text-align: start;
+      position: relative;
+      height: 200px;
+
+      &__titulo {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      div {
+        justify-self: center;
+      }
+
+      input,
+      textarea {
+        position: absolute;
+        font-family: inherit;
+        font-size: inherit;
+        outline: none;
+        border: 2px solid $white;
+        border-radius: 5px;
+        color: $white;
+        background: none;
+        height: 2em;
+        width: 100%;
+        left: 0;
+
+        &:hover {
+          border-color: $skyblue;
+        }
+
+        &:active {
+          border-color: $darkblue;
+        }
+      }
+
+      &__nombre {
+        top: 3.6em;
+      }
+
+      &__email {
+        top: 7.6em;
+      }
+
+      &__asunto {
+        top: 11.6em;
+      }
+
+      .contacto__formContenedor__form__nombre:focus~.contacto__formContenedor__form__labelNombre,
+      input:not(:placeholder-shown).contacto__formContenedor__form__nombre:not(:focus)~.contacto__formContenedor__form__labelNombre {
+        top: 2.5rem;
+        left: 0.8rem;
+        font-size: 0.7rem;
+        color: $skyblue;
+      }
+
+      .contacto__formContenedor__form__email:focus~.contacto__formContenedor__form__labelEmail,
+      input:not(:placeholder-shown).contacto__formContenedor__form__email:not(:focus)~.contacto__formContenedor__form__labelEmail {
+        top: 6.5rem;
+        left: 0.8rem;
+        font-size: 0.7rem;
+        color: $skyblue;
+      }
+
+      .contacto__formContenedor__form__asunto:focus~.contacto__formContenedor__form__labelAsunto,
+      input:not(:placeholder-shown).contacto__formContenedor__form__asunto:not(:focus)~.contacto__formContenedor__form__labelAsunto {
+        top: 10.5rem;
+        left: 0.8rem;
+        font-size: 0.7rem;
+        color: $skyblue;
+      }
+
+      .contacto__formContenedor__form__textarea1:focus~.contacto__formContenedor__form__labelTextarea1,
+      textarea:not(:placeholder-shown).contacto__formContenedor__form__textarea1:not(:focus)~.contacto__formContenedor__form__labelTextarea1 {
+        top: 14.5rem;
+        left: 0.8rem;
+        font-size: 0.7rem;
+        color: $skyblue;
+      }
+
+      label {
+        position: absolute;
+        left: 0.5rem;
+        padding: 0 0.3rem;
+        font-size: 0.9rem;
+        align-content: end;
+        align-self: end;
+        cursor: text;
+        color: $white;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-color: $lightViolet;
+        transition: top 200ms ease-in,
+          left 200ms ease-in,
+          font-size 200ms ease-in;
+      }
+
+      &__labelNombre {
+        top: 4rem;
+      }
+
+      &__labelEmail {
+        top: 8rem;
+      }
+
+      &__labelAsunto {
+        top: 12rem;
+      }
+
+      textarea {
+        top: 15.5rem;
+        height: 5rem;
+      }
+
+      &__labelTextarea1 {
+        top: 16rem;
+      }
+
+      input[type=submit] {
+        bottom: -100%;
+        width: 103%;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__links {
+    color: $lightViolet;
+    display: grid;
+    place-content: start center;
+    -moz-column-gap: 2rem;
+    column-gap: 2rem;
+    grid-template-columns: repeat(2, 40px);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin: 1em 0 -7em 0;
+
+
+    &__linkedin,
+    &__github {
+      width: 40px;
+      transition: $transitionDelay;
+    }
+
+    &__linkedin:hover,
+    &__github:hover {
+      transform: $bigSize;
+    }
+  }
+}
+
+@media (min-width: 800px) {
+  .contacto {
+    height: 100vh;
+    grid-template-rows: auto;
+    grid-template-columns: 10% 90%;
+    row-gap: 0;
+
+    &__formContenedorParaEfectos {
+      height: 90%;
+      transform: translateX(200px);
+    }
+
+    &__formContenedor {
+      grid-row: -1;
+
+      &__form {
+        margin: 0 2em;
+
+        textarea {
+          height: 60%;
+        }
+
+        input[type=submit] {
+          top: 25rem;
+        }
+      }
+    }
+
+    &__links {
+      transform: translateX(200px);
+      height: 0;
+      margin: -7% 0 0 0;
+      opacity: 0;
+
+      &__linkedin {
+        margin-left: 5px;
+      }
+    }
+  }
+}
